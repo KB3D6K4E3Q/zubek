@@ -13,6 +13,7 @@
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
     "@material-tailwind/react": "^2.1.10",
+    "@next/bundle-analyzer": "^15.1.7",
     "@studio-freight/lenis": "^1.0.42",
     "@tabler/icons-react": "^3.30.0",
     "framer-motion": "^12.4.2",

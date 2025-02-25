@@ -11,7 +11,7 @@ export const HoverImageLinks = () => {
         <LinkComponent heading="About" subheading="Comming soon!" imgSrc="/assets/pictures/Passion.jpg" href="#" />
         <LinkComponent heading="Clients" subheading="Comming soon!" imgSrc="/assets/pictures/Idea.jpg" href="#" />
         <LinkComponent heading="Projects" subheading="My work speaks for itself" imgSrc="/assets/pictures/Projects.jpg" href="#chip" />
-        <LinkComponent heading="Career" subheading="Dive into my start as a developer" imgSrc="/assets/pictures/Computer.jpg" href="/casestudies" />
+        <LinkComponent heading="Career" subheading="Dive into my start as a developer" imgSrc="/assets/pictures/Computer.jpg" href="/career" />
         <LinkComponent heading="Fun" subheading="In case you're bored" imgSrc="/assets/pictures/Happy.jpg" href="/fun" />
       </div>
     </section>
