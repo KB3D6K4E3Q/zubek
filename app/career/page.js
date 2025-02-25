@@ -3,39 +3,38 @@ import { motion } from "framer-motion";
 
 export default function Career() {
   return (
-    <section className="bg-[#ffff] text-black h-full w-full flex justify-center items-center px-4 overflow-hidden">
-     <div>
-      <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, ease: "easeOut" }}
-    className="max-w-2xl text-center"
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.2 }}
-      >
-        <h1 className="font-bold text-5xl sm:text-5xl leading-tight mt-10">
-          Six Months. <br />
-          Multiple Projects. <br />
-          One Designer.
-        </h1>
-         {/* Overview */}
-        <p className="mt-6 text-gray-700 text-lg">
-          <span className="font-semibold">01. OVERVIEW</span> <br />
-          Dive into my six-month journey as a UX designer, where I navigated a fast-paced environment, managed multiple projects, and developed websites
-           from the ground up. This case study showcases how I crafted user-centric solutions, optimized workflows, and applied technical expertise to overcome real-world challenges.
-        </p>
-        <p className="mt-4 text-gray-500 text-sm">
-          <strong>Note:</strong> Some details have been omitted for confidentiality, focusing on the work itself.
-        </p>
-         {/* Picture */}
-        <motion.img
-          src="/assets/pictures/Prequel.png"
-          alt="Crave"
-          className="rounded-2xl mt-12 shadow-2xl"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        />
+<section className="bg-[#ffff] text-black h-full w-full flex justify-center items-center px-4 overflow-hidden">
+  <div className="max-w-2xl w-full">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="text-center"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <h1 className="font-bold text-4xl sm:text-5xl leading-tight mt-10">
+        Six Months. <br />
+        Multiple Projects. <br />
+        One Designer.
+      </h1>
+      {/* Overview */}
+      <p className="mt-6 text-gray-700 text-base sm:text-lg">
+        <span className="font-semibold">01. OVERVIEW</span> <br />
+        Dive into my six-month journey as a UX designer, where I navigated a fast-paced environment, managed multiple projects, and developed websites
+        from the ground up. This case study showcases how I crafted user-centric solutions, optimized workflows, and applied technical expertise to overcome real-world challenges.
+      </p>
+      <p className="mt-4 text-gray-500 text-sm">
+        <strong>Note:</strong> Some details have been omitted for confidentiality, focusing on the work itself.
+      </p>
+      {/* Picture */}
+      <motion.img
+        src="/assets/pictures/Prequel.png"
+        alt="Crave"
+        className="rounded-2xl mt-12 shadow-2xl w-full h-auto"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      />
 
         <hr className="mt-6 border-t border-gray-300 w-3/4 mx-auto" />
         <div className="md:flex md:items-start md:justify-between text-left mt-6">
@@ -239,32 +238,33 @@ export default function Career() {
       </div>
   {/* UX STRATEGY */}
   <div className="flex flex-col items-center justify-center px-6 md:px-16 py-16">
-      <h1 className="text-4xl lg:mt-10 lg:text-[5vw] font-bold text-center mb-12">UX Strategy</h1>
-      <div className="flex flex-col md:flex-row gap-8 max-w-5xl w-full justify-center">
+  <h1 className="text-4xl lg:mt-10 lg:text-[5vw] font-bold text-center mb-12">UX Strategy</h1>
 
-      {/* 70% Boring */}
-      <div className="lg:mt-10 bg-gray-300 p-8 rounded-[4rem] flex-1 min-w-[400px] max-w-[500px]">
-          <h2 className="text-4xl font-bold">70% Boring</h2>
-          <p className="text-left mt-4 text-gray-800 text-lg">
-            Our UX strategy centres on <strong>Jakob's Law</strong>, which states:
-            <span className="font-bold"> "Users spend most of their time on other websites, so they expect your site to work like all the others they already know."</span>
-          </p>
-          <p className="text-left mt-4 text-gray-800 text-lg">
-            By mirroring design elements from popular websites and apps, we're aiming to make our users feel right at home. This approach taps into their existing mental models and learned behaviors, reducing cognitive load, smoothing out the learning curve, and boosting overall user satisfaction and efficiency.
-          </p>
-        </div>
+  <div className="flex flex-col md:flex-row gap-8 max-w-5xl w-full justify-center">
 
-        {/* 30% Magic */}
-        <div className="lg:mt-10 bg-black text-white p-8 rounded-[4rem] flex-1 min-w-[400px] max-w-[500px]">
-          <h2 className="text-4xl font-bold">30% Magic</h2>
-          <p className="text-left mt-4 text-lg">
-            In data visualization, it's often the small UI decisions that make all the difference. Elements like typography, spacing, and content play crucial roles in how users perceive and interpret data.
-          </p>
-          <p className="text-left mt-4 text-lg">
-            By honing in on these nuances, we can enhance the user experience and convey information more effectively.
-          </p>
-        </div>
-      </div>
+    {/* 70% Boring */}
+    <div className="bg-gray-300 p-8 rounded-[2rem] flex-1 w-full sm:min-w-[300px] sm:max-w-[400px]">
+      <h2 className="text-3xl sm:text-4xl font-bold">70% Boring</h2>
+      <p className="text-left mt-4 text-gray-800 text-base sm:text-lg">
+        Our UX strategy centres on <strong>Jakob's Law</strong>, which states:
+        <span className="font-bold"> "Users spend most of their time on other websites, so they expect your site to work like all the others they already know."</span>
+      </p>
+      <p className="text-left mt-4 text-gray-800 text-base sm:text-lg">
+        By mirroring design elements from popular websites and apps, we're aiming to make our users feel right at home. This approach taps into their existing mental models and learned behaviors, reducing cognitive load, smoothing out the learning curve, and boosting overall user satisfaction and efficiency.
+      </p>
+    </div>
+
+    {/* 30% Magic */}
+    <div className="bg-black text-white p-8 rounded-[2rem] flex-1 w-full sm:min-w-[300px] sm:max-w-[400px]">
+      <h2 className="text-3xl sm:text-4xl font-bold">30% Magic</h2>
+      <p className="text-left mt-4 text-base sm:text-lg">
+        In data visualization, it's often the small UI decisions that make all the difference. Elements like typography, spacing, and content play crucial roles in how users perceive and interpret data.
+      </p>
+      <p className="text-left mt-4 text-base sm:text-lg">
+        By honing in on these nuances, we can enhance the user experience and convey information more effectively.
+      </p>
+    </div>
+  </div>
       <hr className="mt-6 border-t border-gray-300 w-3/4 mx-auto" />
 
     <p className="mt-6 text-gray-700 text-xl font-semibold">
