@@ -8,11 +8,9 @@ export const HoverImageLinks = () => {
   return (
     <section className="bg-black p-4 md:p-8">
       <div className="mx-auto max-w-5xl">
-        <LinkComponent heading="About" subheading="Comming soon!" imgSrc="/assets/pictures/Passion.jpg" href="#" />
-        <LinkComponent heading="Clients" subheading="Comming soon!" imgSrc="/assets/pictures/Idea.jpg" href="#" />
+        <LinkComponent heading="About" subheading="Explore something About Me" imgSrc="/assets/pictures/Passion.jpg" href="/about" />
         <LinkComponent heading="Projects" subheading="My work speaks for itself" imgSrc="/assets/pictures/Projects.jpg" href="#chip" />
         <LinkComponent heading="Career" subheading="Dive into my start as a developer" imgSrc="/assets/pictures/Computer.jpg" href="/career" />
-        <LinkComponent heading="Fun" subheading="In case you're bored" imgSrc="/assets/pictures/Happy.jpg" href="/fun" />
       </div>
     </section>
   );

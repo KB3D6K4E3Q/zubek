@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export const HireMe = () => {
   return (
@@ -35,9 +36,12 @@ const BlockInTextCard = ({ tag, text, examples }) => {
         <Typewrite examples={examples} />
         <hr className="border-gray-700" />
       </div>
-      <button className="w-full rounded-full border border-white py-2 text-sm font-medium text-white transition-colors hover:bg-white hover:text-black">
-        Hire Me
-      </button>
+      <a
+   href="/hireme"
+   className="w-full flex justify-center rounded-full border border-white py-3 px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-[#1C1D20] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#1C1D20]"
+ >
+   Hire Me
+ </a>
     </div>
   );
 };

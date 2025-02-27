@@ -35,7 +35,7 @@ export default function Career() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       />
-
+    </motion.div>
         <hr className="mt-6 border-t border-gray-300 w-3/4 mx-auto" />
         <div className="md:flex md:items-start md:justify-between text-left mt-6">
           <div className="md:w-1/2">
@@ -329,7 +329,6 @@ export default function Career() {
         </div>
       </div>
     </div>
-      </motion.div>
      </div>
     </section>
   );
