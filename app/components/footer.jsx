@@ -1,64 +1,102 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Image from 'next/image';
+import { useRef, useEffect, useState } from 'react';
+import { useScroll, motion, useTransform } from 'framer-motion';
+import Magnetic from './menu/Magnetic';
 
-const fadeIn = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
-};
+export default function Contact() {
+    const container = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: container,
+        offset: ["start end", "end end"]
+    });
 
-export default function Profile() {
-  return (
-    <div className="flex min-h-screen bg-white p-8 text-black">
-      {/* Sidebar */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeIn}
-        className="w-1/3 flex flex-col justify-center"
-      >
-        <h1 className="text-5xl font-bold">Hello.</h1>
-        <h2 className="text-lg text-gray-800">How Can I Help?</h2>
-      </motion.div>
+    const y = useTransform(scrollYProgress, [0, 1], [-200, 0]);
+    const rotate = useTransform(scrollYProgress, [0, 1], [90, 0]);
+    const [isVisible, setIsVisible] = useState(false);
 
-      {/* Main Content */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeIn}
-        className="w-2/3 flex flex-col justify-center"
-      >
-        <p className="text-lg text-gray-700 max-w-lg">
-          I'm <span className="font-semibold">Ondrej</span>, a 16-year-old developer and designer from Slovakia. Over the past 4 years, I've worked on several successful projects, primarily in the fintech space. I'm passionate about building innovative solutions and continuously expanding my skill set. I'm now eager to take on new challenges and collaborate on exciting projects.
-        </p>
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            setIsVisible(scrollPosition >= documentHeight - 100);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
-        <p className="mt-4 text-gray-700 max-w-lg">
-          I specialize in <span className="font-semibold">developing user-centric designs</span> and <span className="font-semibold">
-            building seamless digital experiences</span>. From <span className="font-semibold">conceptualizing ideas</span> and{' '}
-          <span className="font-semibold">creating wireframes</span> to <span className="font-semibold">designing intuitive UI/UX</span> and <span className="font-semibold">optimizing for both web and mobile platforms</span>, I ensure each project delivers real value and impact.
-        </p>
-
+    return (
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeIn}
-          className="mt-8"
+            ref={container}
+            style={{ y }}
+            className="bg-black text-white py-12 px-6 md:px-20 flex flex-col gap-12 items-center text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isVisible ? 1 : 0 }}
+            transition={{ duration: 0.5 }}
         >
-          <h2 className="font-semibold text-xl">Let's Connect</h2>
-          <ul className="mt-2 space-y-2">
-            <li><a href="https://mail.google.com/" className="text-blue-600 hover:underline">Email ↗</a></li>
-            <li><a href="https://www.linkedin.com/in/ondrej-zubek-580b6534a/" className="text-blue-600 hover:underline">LinkedIn ↗</a></li>
-            <li><a href="https://www.instagram.com/_ondrej.zubek_/" className="text-blue-600 hover:underline">Instagram →</a></li>
-          </ul>
-        </motion.div>
+            {/* Header */}
+            <div className="flex flex-col items-center gap-4">
+                <div className="w-14 h-14 relative rounded-full overflow-hidden">
+                    <Image
+                        fill
+                        alt="avatar"
+                        src="/assets/pictures/Logo.png"
+                    />
+                </div>
+                <h2 className="text-4xl font-semibold leading-tight">
+                    Let’s work<br />together
+                </h2>
+                <motion.div style={{ rotate }}>
+                    <a href="mailto:zubek.founder@gmail.com">
+                        <button className="bg-[#4D5BFF] text-white px-8 py-4 rounded-full text-lg mt-4">
+                            Get in touch
+                        </button>
+                    </a>
+                </motion.div>
+            </div>
 
-        <footer className="mt-12 text-gray-500 text-sm">
-          © 2025 Made with ❤️ by <a href="https://www.instagram.com/_ondrej.zubek_/?next=/">Ondrej</a>
-        </footer>
-      </motion.div>
-    </div>
-  );
+            {/* Contact Info */}
+            <div className="flex flex-col gap-4 w-full max-w-md">
+                <a href="mailto:zubek.founder@gmail.com" className="w-full border border-gray-600 py-3 rounded-full block">
+                    <p>zubek.founder@gmail.com</p>
+                </a>
+                <a href="tel:+421903935613" className="w-full border border-gray-600 py-3 rounded-full block">
+                    <p>+421 903 935 613</p>
+                </a>
+            </div>
+
+            {/* Footer Info */}
+            <div className="flex flex-col md:flex-row justify-between w-full max-w-5xl gap-10 text-sm">
+                <div className="flex flex-col gap-4 text-left md:text-left">
+                    <div>
+                        <h3 className="text-gray-400">VERSION</h3>
+                        <p>2025 © Edition</p>
+                    </div>
+                    <div>
+                        <h3 className="text-gray-400">LOCAL TIME</h3>
+                        <p>11:49 PM GMT+2</p>
+                    </div>
+                </div>
+
+                <div className="flex flex-col gap-2 text-left">
+                    <h3 className="text-gray-400">SOCIALS</h3>
+                    <div className="flex flex-wrap gap-4">
+                        <Magnetic>
+                            <a href="https://www.instagram.com/_ondrej.zubek_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                        </Magnetic>
+                        <Magnetic>
+                            <a href="https://www.linkedin.com/in/ondrej-zubek-580b6534a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        </Magnetic>
+                        <Magnetic>
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+                        </Magnetic>
+                        <Magnetic>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+                        </Magnetic>
+                    </div>
+                </div>
+            </div>
+        </motion.div>
+    );
 }

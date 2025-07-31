@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const HoverImageLinks = () => {
   return (
-    <section className="bg-black p-4 md:p-8">
+    <section className="bg-black p-1 md:p-8">
       <div className="mx-auto max-w-5xl">
         <LinkComponent heading="About" subheading="Explore something About Me" imgSrc="/assets/pictures/Passion.jpg" href="/about" />
         <LinkComponent heading="Projects" subheading="My work speaks for itself" imgSrc="/assets/pictures/Projects.jpg" href="#chip" />
