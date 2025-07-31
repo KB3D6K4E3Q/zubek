@@ -1,6 +1,7 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 import 'core-js';
 import 'regenerator-runtime/runtime';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 export default function Document() {
