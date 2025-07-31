@@ -1,33 +1,27 @@
-"use client";
+import { Html, Head, Main, NextScript } from 'next/document';
+import 'core-js';
+import 'regenerator-runtime/runtime';
 
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { usePathname } from "next/navigation";
-import { AnimatePresence } from "framer-motion";
-import Header from "./header/index.jsx";
-import Preloader from './components/Preloader';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export default function RootLayout({ children }) {
-  const pathname = usePathname();
-
+export default function Document() {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}>
-        <AnimatePresence mode="wait">
-          <Preloader />
-        </AnimatePresence>
-        <div key={pathname} className="overflow-x-hidden">{children}</div>
+    <Html lang="en">
+      <Head>
+        {/* Preload globals.css to prevent render-blocking */}
+        <link
+          rel="preload"
+          href="/globals.css"
+          as="style"
+          onLoad="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript>
+          <link rel="stylesheet" href="/globals.css" />
+        </noscript>
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
       </body>
-    </html>
+    </Html>
   );
 }
