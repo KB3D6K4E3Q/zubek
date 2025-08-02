@@ -6,6 +6,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+      <meta name="google-site-verification" content="jgPySbe7Eb7Qsqg7uztKDs82BO195bVHlLs4EpI1jZ4" />
         {/* Preload globals.css to prevent render-blocking */}
         <link
           rel="preload"
