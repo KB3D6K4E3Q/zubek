@@ -22,8 +22,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <meta name="google-site-verification" content="jgPySbe7Eb7Qsqg7uztKDs82BO195bVHlLs4EpI1jZ4" />
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}>
+<meta name="google-site-verification" content="LrJFY3rjL0-MjvKr0DPI8J6UzVHOsUF2BxmJegNCXEw" />      <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}>
 
         <AnimatePresence mode="wait">
           <Preloader />
