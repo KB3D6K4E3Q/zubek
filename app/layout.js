@@ -1,27 +1,34 @@
-import { Html, Head, Main, NextScript } from 'next/document';
-import { SpeedInsights } from "@vercel/speed-insights/next"
+"use client";
 
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import { usePathname } from "next/navigation";
+import { AnimatePresence } from "framer-motion";
+import Header from "./header/index.jsx";
+import Preloader from './components/Preloader';
 
-export default function Document() {
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export default function RootLayout({ children }) {
+  const pathname = usePathname();
+
   return (
-    <Html lang="en">
-      <Head>
-      <meta name="google-site-verification" content="jgPySbe7Eb7Qsqg7uztKDs82BO195bVHlLs4EpI1jZ4" />
-        {/* Preload globals.css to prevent render-blocking */}
-        <link
-          rel="preload"
-          href="/globals.css"
-          as="style"
-          onLoad="this.onload=null;this.rel='stylesheet'"
-        />
-        <noscript>
-          <link rel="stylesheet" href="/globals.css" />
-        </noscript>
-      </Head>
-      <body>
-        <Main />
-        <NextScript />
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}>
+
+        <AnimatePresence mode="wait">
+          <Preloader />
+        </AnimatePresence>
+        <div key={pathname} className="overflow-x-hidden">{children}</div>
       </body>
-    </Html>
+    </html>
   );
 }
